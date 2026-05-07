@@ -1,0 +1,54 @@
+appId: com.screenshield.app
+productName: ScreenShield
+
+directories:
+  output: dist-release
+  buildResources: assets
+
+files:
+  - dist/**/*
+  - package.json
+  - "!src/**/*"
+  - "!docs/**/*"
+  - "!**/*.test.ts"
+  - "!**/*.spec.ts"
+  - "!vitest.config.*"
+  - "!vite.*.config.*"
+  - "!tsconfig.json"
+  - "!eslint.config.*"
+  - "!.prettierrc"
+  - "!CLAUDE.md"
+
+asar: true
+
+win:
+  target: nsis
+  icon: assets/icons/icon.ico
+  artifactName: "${productName}-${version}-win-${arch}.${ext}"
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false
+  shortcutName: ScreenShield
+
+mac:
+  target: dmg
+  icon: assets/icons/icon.icns
+  notarize: true
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  artifactName: "${productName}-${version}-mac.${ext}"
+
+dmg:
+  sign: false
+
+linux:
+  target: AppImage
+  icon: assets/icons
+  artifactName: "${productName}-${version}-linux.${ext}"
+
+publish:
+  provider: github
+  releaseType: draft
