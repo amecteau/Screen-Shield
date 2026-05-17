@@ -5,6 +5,11 @@
 > probability of correct output on the first attempt. See `docs/HARNESS.md` for the
 > full harness engineering strategy.
 
+## Implementation status
+
+See `PROJECT_STATUS.md` for current build progress, next steps, and phase-by-phase
+implementation instructions. Use the `/build-next` command to implement the next phase.
+
 ## Project summary
 
 ScreenShield is an Electron desktop application that renders a transparent, always-on-top
