@@ -165,7 +165,7 @@ See `docs/HARNESS.md` for the complete mapping.
 
 ### Feedforward guides (steer before acting)
 - This CLAUDE.md file
-- `.eslintrc.cjs` with strict rules
+- `eslint.config.mjs` with strict rules
 - `tsconfig.json` with strict mode
 - Zod schemas as living documentation of data contracts
 - `docs/ARCHITECTURE.md` for high-level design decisions
