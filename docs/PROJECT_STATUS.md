@@ -12,7 +12,7 @@
 | Phase | Description | Status |
 |-------|-------------|--------|
 | 0 | Project scaffold & shared code | ✅ Complete |
-| 1 | Application lifecycle | ⬜ Not started |
+| 1 | Application lifecycle | ✅ Complete |
 | 2 | Secure window factory | ⬜ Not started |
 | 3 | Window controllers | ⬜ Not started |
 | 4 | System tray | ⬜ Not started |
@@ -44,26 +44,19 @@ a later phase reveals a necessary type change (document the reason).
 
 ---
 
-## Phase 1 — Application lifecycle ⬜
+## Phase 1 — Application lifecycle ✅
 
 **File:** `src/main/app/app.ts`
 **Tests:** `src/main/app/app.test.ts`
 
-Create an `AppManager` class or `initializeApp` function that handles:
+- [x] `app.requestSingleInstanceLock()` — quit immediately if lock fails
+- [x] On `second-instance` event — focus existing settings window if open
+- [x] `app.whenReady()` — call the `onReady` callback passed from index.ts
+- [x] `app.on('window-all-closed')` — do NOT quit (tray app stays alive with no visible windows)
+- [x] `app.on('activate')` (macOS) — show settings window if no windows are visible
+- [x] Export: `initializeApp(onReady: () => Promise<void>, options?: AppManagerOptions): void`
 
-- [ ] `app.requestSingleInstanceLock()` — quit immediately if lock fails
-- [ ] On `second-instance` event — focus existing settings window if open
-- [ ] `app.whenReady()` — call the `onReady` callback passed from index.ts
-- [ ] `app.on('window-all-closed')` — do NOT quit (tray app stays alive with no visible windows)
-- [ ] `app.on('activate')` (macOS) — show settings window if no windows are visible
-- [ ] Export: `initializeApp(onReady: () => Promise<void>): void`
-
-**Tests to write:**
-- Verify that `app.quit()` is called when single instance lock fails
-- Verify `onReady` callback is invoked after `app.whenReady()`
-- Verify `window-all-closed` does NOT trigger quit
-
-**When done:** Check off tasks above, set status to ✅, run `npx vitest run` and `npx tsc --noEmit`.
+11 tests passing. Full suite: 49/49. Typecheck: clean.
 
 ---
 
@@ -277,3 +270,4 @@ Using Playwright with Electron launcher:
 | Date | Phase | What changed |
 |------|-------|-------------|
 | 2026-05-08 | 0 | Initial scaffold generated from Claude.ai conversation |
+| 2026-05-17 | 1 | Application lifecycle — initializeApp with single-instance lock, event handlers, onReady |
