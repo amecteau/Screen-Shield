@@ -14,7 +14,7 @@
 | 0 | Project scaffold & shared code | ✅ Complete |
 | 1 | Application lifecycle | ✅ Complete |
 | 2 | Secure window factory | ✅ Complete |
-| 3 | Window controllers | ⬜ Not started |
+| 3 | Window controllers | ✅ Complete |
 | 4 | System tray | ⬜ Not started |
 | 5 | IPC handlers | ⬜ Not started |
 | 6 | Preload scripts | ⬜ Not started |
@@ -75,23 +75,23 @@ a later phase reveals a necessary type change (document the reason).
 
 ---
 
-## Phase 3 — Window controllers ⬜
+## Phase 3 — Window controllers ✅
 
 **Files:** `src/main/windows/overlay.window.ts`, `src/main/windows/settings.window.ts`
 **Tests:** co-located `.test.ts` files
 
 ### Overlay controller
-- [ ] `show()` / `hide()`
-- [ ] `updateRegions(regions: readonly BlurRegion[])` — send to renderer via `OVERLAY_UPDATE_REGIONS` channel
-- [ ] `setSettingsMode(active: boolean)` — toggle `setIgnoreMouseEvents(!active)`, send `OVERLAY_SETTINGS_MODE` to renderer
-- [ ] `destroy()`
+- [x] `show()` / `hide()`
+- [x] `updateRegions(regions: readonly BlurRegion[])` — send to renderer via `OVERLAY_UPDATE_REGIONS` channel
+- [x] `setSettingsMode(active: boolean)` — toggle `setIgnoreMouseEvents(!active)`, send `OVERLAY_SETTINGS_MODE` to renderer
+- [x] `destroy()`
 
 ### Settings controller
-- [ ] `show()` — show and focus
-- [ ] `hide()`
-- [ ] `isVisible(): boolean`
+- [x] `show()` — show and focus
+- [x] `hide()`
+- [x] `isVisible(): boolean`
 
-**When done:** Check off tasks, set status to ✅, run tests.
+17 tests passing (9 overlay, 8 settings). Full suite: 89/89. Typecheck: clean.
 
 ---
 
@@ -256,3 +256,4 @@ Using Playwright with Electron launcher:
 | 2026-05-08 | 0 | Initial scaffold generated from Claude.ai conversation |
 | 2026-05-17 | 1 | Application lifecycle — initializeApp with single-instance lock, event handlers, onReady |
 | 2026-05-17 | 2 | Secure window factory — createOverlayWindow, createSettingsWindow, setupContentSecurityPolicy |
+| 2026-05-20 | 3 | Window controllers — OverlayWindowController, SettingsWindowController |
