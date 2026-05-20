@@ -15,7 +15,7 @@
 | 1 | Application lifecycle | ✅ Complete |
 | 2 | Secure window factory | ✅ Complete |
 | 3 | Window controllers | ✅ Complete |
-| 4 | System tray | ⬜ Not started |
+| 4 | System tray | ✅ Complete |
 | 5 | IPC handlers | ⬜ Not started |
 | 6 | Preload scripts | ⬜ Not started |
 | 7 | Overlay renderer | ⬜ Not started |
@@ -95,26 +95,24 @@ a later phase reveals a necessary type change (document the reason).
 
 ---
 
-## Phase 4 — System tray ⬜
+## Phase 4 — System tray ✅
 
 **File:** `src/main/tray/tray.service.ts`
 **Tests:** `src/main/tray/tray.service.test.ts`
 
-- [ ] Create `Tray` with icon from `assets/icons/`
-- [ ] Build dynamic context menu with:
+- [x] Create `Tray` with icon from `assets/icons/`
+- [x] Build dynamic context menu with:
   - "ScreenShield" header (disabled label)
   - Enable/Disable toggle (checkbox)
   - Radio group listing all profiles by name (active profile checked)
   - "New Profile..." — create blank profile, set active, open settings
   - "Edit Current..." — open settings in edit mode
   - "Quit" — `app.quit()`
-- [ ] `refresh()` method — rebuild menu after any profile change
-- [ ] Constructor takes: `profileService`, `onOpenSettings`, `onToggleActive`, `onSelectProfile` callbacks
+- [x] `refresh()` method — rebuild menu after any profile change
+- [x] Constructor takes: `profileService`, `onOpenSettings`, `onToggleActive`, `onSelectProfile` callbacks
 
-**Note:** You'll need a placeholder icon file. Create a simple 16×16 PNG in `assets/icons/`.
-On macOS the tray icon should be a Template image (append `Template` to filename).
-
-**When done:** Check off tasks, set status to ✅, run tests.
+27 tests passing. Full suite: 116/116. Typecheck: clean.
+Placeholder icons created: `assets/icons/tray-icon.png`, `assets/icons/tray-iconTemplate.png`.
 
 ---
 
@@ -257,3 +255,4 @@ Using Playwright with Electron launcher:
 | 2026-05-17 | 1 | Application lifecycle — initializeApp with single-instance lock, event handlers, onReady |
 | 2026-05-17 | 2 | Secure window factory — createOverlayWindow, createSettingsWindow, setupContentSecurityPolicy |
 | 2026-05-20 | 3 | Window controllers — OverlayWindowController, SettingsWindowController |
+| 2026-05-20 | 4 | System tray — TrayService with dynamic menu, profile radio items, toggle, placeholder icons |
