@@ -16,7 +16,7 @@
 | 2 | Secure window factory | ✅ Complete |
 | 3 | Window controllers | ✅ Complete |
 | 4 | System tray | ✅ Complete |
-| 5 | IPC handlers | ⬜ Not started |
+| 5 | IPC handlers | ✅ Complete |
 | 6 | Preload scripts | ⬜ Not started |
 | 7 | Overlay renderer | ⬜ Not started |
 | 8 | Settings UI (React) | ⬜ Not started |
@@ -116,24 +116,18 @@ Placeholder icons created: `assets/icons/tray-icon.png`, `assets/icons/tray-icon
 
 ---
 
-## Phase 5 — IPC handlers ⬜
+## Phase 5 — IPC handlers ✅
 
 **File:** `src/main/ipc/ipc.handlers.ts`
 **Tests:** `src/main/ipc/ipc.handlers.test.ts`
 
-- [ ] `registerIpcHandlers(profileService, overlayController, settingsController, trayService)` function
-- [ ] Use `ipcMain.handle()` for each channel in `ipc.channels.ts`
-- [ ] Every handler validates input with Zod schemas from `profile.schema.ts`
-- [ ] Every handler returns `IpcResult<T>` — never throws
-- [ ] After profile mutations: send updated regions to overlay, call `trayService.refresh()`
+- [x] `registerIpcHandlers(profileService, overlayController, settingsController, trayService)` function
+- [x] Use `ipcMain.handle()` for each channel in `ipc.channels.ts`
+- [x] Every handler validates input with Zod schemas from `profile.schema.ts`
+- [x] Every handler returns `IpcResult<T>` — never throws
+- [x] After profile mutations: send updated regions to overlay, call `trayService.refresh()`
 
-**Tests to write:**
-- Each channel is registered
-- Invalid payloads rejected with descriptive error messages
-- Successful operations return correct IpcResult shape
-- Profile mutations trigger overlay update and tray refresh
-
-**When done:** Check off tasks, set status to ✅, run tests.
+38 tests passing. Full suite: 154/154. Typecheck: clean.
 
 ---
 
@@ -256,3 +250,4 @@ Using Playwright with Electron launcher:
 | 2026-05-17 | 2 | Secure window factory — createOverlayWindow, createSettingsWindow, setupContentSecurityPolicy |
 | 2026-05-20 | 3 | Window controllers — OverlayWindowController, SettingsWindowController |
 | 2026-05-20 | 4 | System tray — TrayService with dynamic menu, profile radio items, toggle, placeholder icons |
+| 2026-05-20 | 5 | IPC handlers — registerIpcHandlers with Zod validation, IpcResult<T>, overlay/tray sync on mutations |
